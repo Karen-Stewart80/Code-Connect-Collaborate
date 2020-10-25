@@ -33,20 +33,22 @@ $ python src/main.py
 
 ### Wireframes
 
-<<<<<<< HEAD:docs/README.md
 ![Landing Page](docs/wireframes/Landing.png)
 
 ![Home Page](docs/wireframes/Homepage.png)
 
 ![Profile](docs/wireframes/Profile.png)
-=======
-
-
->>>>>>> ca3b30dce7377989310bc7980cd70de1443f3bac:README.md
 
 ![Connections](docs/wireframes/Connections.png)
 
 ![Collaborations](docs/wireframes/Collaborations.png)
+
+![Landing Page mobile](docs/wireframes/Landingmobile.png)
+![Home Page mobile](docs/wireframes/Homepagemobile.png)
+![Profile mobile](docs/wireframes/Profilemobile.png)
+![Connections mobile](docs/wireframes/Connectionsmobile.png)
+![Collaborations mobile](docs/wireframes/Collaborationsmobile.png)
+
 
 ![Landing Page mobile](docs/wireframes/Landingmobile.png)
 ![Home Page mobile](docs/wireframes/Homepagemobile.png)
