@@ -33,21 +33,21 @@ $ python src/main.py
 
 ### Wireframes
 
-![Landing Page](wireframes/Landing.png)
+![Landing Page](docs/wireframes/Landing.png)
 
-![Home Page](wireframes/Homepage.png)
+![Home Page](docs/wireframes/Homepage.png)
 
-![Profile](wireframes/Profile.png)
+![Profile](docs/wireframes/Profile.png)
 
-![Connections](wireframes/Connections.png)
+![Connections](docs/wireframes/Connections.png)
 
-![Collaborations](wireframes/Collaborations.png)
+![Collaborations](docs/wireframes/Collaborations.png)
 
-![Landing Page mobile](wireframes/Landingmobile.png)
-![Home Page mobile](wireframes/Homepagemobile.png)
-![Profile mobile](wireframes/Profilemobile.png)
-![Connections mobile](wireframes/Connectionsmobile.png)
-![Collaborations mobile](wireframes/Collaborationsmobile.png)
+![Landing Page mobile](docs/wireframes/Landingmobile.png)
+![Home Page mobile](docs/wireframes/Homepagemobile.png)
+![Profile mobile](docs/wireframes/Profilemobile.png)
+![Connections mobile](docs/wireframes/Connectionsmobile.png)
+![Collaborations mobile](docs/wireframes/Collaborationsmobile.png)
 
 
 
