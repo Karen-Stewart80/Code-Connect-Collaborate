@@ -50,13 +50,6 @@ $ python src/main.py
 ![Collaborations mobile](docs/wireframes/Collaborationsmobile.png)
 
 
-![Landing Page mobile](docs/wireframes/Landingmobile.png)
-![Home Page mobile](docs/wireframes/Homepagemobile.png)
-![Profile mobile](docs/wireframes/Profilemobile.png)
-![Connections mobile](docs/wireframes/Connectionsmobile.png)
-![Collaborations mobile](docs/wireframes/Collaborationsmobile.png)
-
-
 
 
  
