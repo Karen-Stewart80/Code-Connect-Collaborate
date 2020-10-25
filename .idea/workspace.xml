@@ -49,11 +49,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/wireframes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/docs" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -69,7 +70,7 @@
       <workItem from="1603600904894" duration="4401000" />
       <workItem from="1603655972558" duration="299000" />
       <workItem from="1603658789277" duration="136000" />
-      <workItem from="1603661144174" duration="204000" />
+      <workItem from="1603661144174" duration="965000" />
     </task>
     <servers />
   </component>
