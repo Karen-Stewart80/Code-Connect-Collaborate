@@ -31,6 +31,18 @@ $ pip install -r requirements.txt
 **Run app**\
 $ python src/main.py
 
+### Wireframes
+
+![Landingpage](docs/wireframes/Landing page.png)
+![Landingpage](docs/wireframes/Landingpagemobile.png)
+
+![Homepage](docs/wireframes/Homepage.png)
+![Homepage](docs/wireframes/Homepage-mobile.png)
+
+![My profile](docs/wireframes/My profile.png)
+![My profile](docs/wireframes.Myprofilemobile.png)
+
+
 
 
 
