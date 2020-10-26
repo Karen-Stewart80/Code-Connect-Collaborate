@@ -49,7 +49,9 @@ $ python src/main.py
 ![Connections mobile](docs/wireframes/Connectionsmobile.png)
 ![Collaborations mobile](docs/wireframes/Collaborationsmobile.png)
 
+### CICD pipeline
 
+Code will be pushed to Github repository. Unittest will run tests, mypy will check datatypes and flake will be used to style check.
 
 
  
