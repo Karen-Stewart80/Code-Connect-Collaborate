@@ -28,4 +28,31 @@ def profiles_create():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify(user_schema.dump(new_user))
+    return jsonify(profile_schema.dump(new_user))
+
+@profiles.route("/<string:username>", methods=["GET"])
+def profiles_show(username):
+    #Return a single user
+    user = Profiles.query.filter_by(username = username).first()
+    return jsonify(profile_schema.dump(user))
+
+@profiles.route("/<string:username>", methods=["PUT", "PATCH"])
+def profiles_update(username):
+    #Update a user
+    user = Profiles.query.filter_by(username = username)
+    users_fields = profile_schema.load(request.json)
+    user.update(users_fields)
+
+
+    db.session.commit()
+
+    return jsonify(profile_schema.dump(user[0]))
+
+@profiles.route("/<int:userid>", methods=["DELETE"])
+def profiles_delete(userid):
+    #Delete a User
+    users = Profiles.query.get(userid)
+    db.session.delete(users)
+    db.session.commit()
+
+    return jsonify(profile_schema.dump(users))
