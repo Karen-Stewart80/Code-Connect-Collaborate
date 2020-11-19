@@ -2,6 +2,10 @@ from flask import Blueprint, request, jsonify, abort
 from schemas.ProfileSchema import profile_schema, profiles_schema
 from models.Profiles import Profiles
 from main import db
+from models.Users import Users
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from services.auth_services import verify_user
+
 
 profiles = Blueprint("profiles", __name__, url_prefix="/profiles")
 
@@ -12,18 +16,21 @@ def profiles_index():
 
 
 @profiles.route("/", methods=["POST"])
-def profiles_create():
-    users_fields = profile_schema.load(request.json)
+@jwt_required
+@verify_user
+def profiles_create(user=None):
+    user_id=get_jwt_identity()
+    profile_fields = profile_schema.load(request.json)
+    profile=Profiles.query.get(user_id)
 
     new_user = Profiles()
-    new_user.username = users_fields["username"]
-    new_user.fname = users_fields["fname"]
-    new_user.lname = users_fields["lname"]
-    new_user.userpass = users_fields["userpass"]
-    new_user.profile_pic = users_fields["profile_pic"]
-    new_user.account_active = users_fields["account_active"]
-    new_user.email = users_fields["email"]
-    new_user.github = users_fields["github"]
+    new_user.username = profile_fields["username"]
+    new_user.fname = profile_fields["fname"]
+    new_user.lname = profile_fields["lname"]
+    new_user.account_active = profile_fields["account_active"]
+    new_user.github = profile_fields["github"]
+
+    user.profile.append(new_user)
 
     db.session.add(new_user)
     db.session.commit()
@@ -33,26 +40,37 @@ def profiles_create():
 @profiles.route("/<string:username>", methods=["GET"])
 def profiles_show(username):
     #Return a single user
-    user = Profiles.query.filter_by(username = username).first()
-    return jsonify(profile_schema.dump(user))
+    profile = Profiles.query.filter_by(username = username).first()
+    return jsonify(profile_schema.dump(profile))
 
 @profiles.route("/<string:username>", methods=["PUT", "PATCH"])
-def profiles_update(username):
+@jwt_required
+@verify_user
+def profiles_update(username, user=None):
     #Update a user
-    user = Profiles.query.filter_by(username = username)
-    users_fields = profile_schema.load(request.json)
-    user.update(users_fields)
+    profile = Profiles.query.filter_by(username = username, user_id=user.id)
+    profile_fields = profile_schema.load(request.json)
+
+    if profile.count() != 1:
+        return abort(401, description="Unauthorised to update this user")
+    profile.update(profile_fields)
 
 
     db.session.commit()
 
-    return jsonify(profile_schema.dump(user[0]))
+    return jsonify(profile_schema.dump(profile[0]))
 
-@profiles.route("/<int:userid>", methods=["DELETE"])
-def profiles_delete(userid):
+@profiles.route("/<string:username>", methods=["DELETE"])
+@jwt_required
+@verify_user
+def profiles_delete(username):
     #Delete a User
-    users = Profiles.query.get(userid)
-    db.session.delete(users)
+    profile = Profiles.query.filter_by(username=username, user_id=user.id).first()
+
+    if not profile:
+        return abort(400, description="Unauthorised to delete user")
+
+    db.session.delete(profile)
     db.session.commit()
 
-    return jsonify(profile_schema.dump(users))
+    return jsonify(profile_schema.dump(profile))

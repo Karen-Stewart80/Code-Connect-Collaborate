@@ -21,7 +21,7 @@ def auth_register():
     user.email = user_fields["email"]
     user.password = bcrypt.generate_password_hash(user_fields["password"]).decode("utf-8")
 
-    db.session.add(account)
+    db.session.add(user)
     db.session.commit()
 
     return jsonify(user_schema.dump(user))
@@ -37,6 +37,6 @@ def auth_login():
         return abort(401, description="Incorrect username and password")
 
     expiry = timedelta(days=1)
-    access_token = create_access_token(identity=str(account.id), expires_delta=expiry)
+    access_token = create_access_token(identity=str(user.id), expires_delta=expiry)
 
     return jsonify({ "token": access_token })
