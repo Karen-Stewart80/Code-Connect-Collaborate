@@ -63,7 +63,7 @@ def profiles_update(username, user=None):
 @profiles.route("/<string:username>", methods=["DELETE"])
 @jwt_required
 @verify_user
-def profiles_delete(username):
+def profiles_delete(username, user=None):
     #Delete a User
     profile = Profiles.query.filter_by(username=username, user_id=user.id).first()
 

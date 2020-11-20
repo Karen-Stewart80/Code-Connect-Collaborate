@@ -1,6 +1,7 @@
 from main import ma
 from models.Profiles import Profiles
 from marshmallow.validate import Length
+from schemas.UsersSchema import UsersSchema
 
 class ProfileSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
@@ -10,6 +11,7 @@ class ProfileSchema(ma.SQLAlchemyAutoSchema):
     lname = ma.String(required=True, validate=Length(min=1))
     account_active = ma.Boolean(required=True)
     github = ma.String(required=False, validate=Length(min=1))
+    user = ma.Nested(UsersSchema)
 
 profile_schema = ProfileSchema()
 profiles_schema = ProfileSchema(many=True)
